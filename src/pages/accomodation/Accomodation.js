@@ -16,12 +16,18 @@ export default function Accomodation() {
   const dataCurrentAccomodation = datas.filter(
     (data) => data.id === idAccomodation
   );
+
   useEffect(() => {
     const dataCurrentAccomodation = datas.filter(
       (data) => data.id === idAccomodation
     );
-    setImageSlider(dataCurrentAccomodation[0].pictures);
+    setImageSlider(dataCurrentAccomodation[0]?.pictures); // Utilisation de l'opérateur de nullish (?.) pour éviter l'erreur
   }, [idAccomodation]);
+
+  if (dataCurrentAccomodation.length === 0 || !dataCurrentAccomodation[0]) {
+    // Si dataCurrentAccomodation est vide ou si dataCurrentAccomodation[0] est undefined, rediriger vers NotFound
+    return null;
+  }
 
   const name = dataCurrentAccomodation[0].host.name.split(" ");
   const rating = dataCurrentAccomodation[0].rating;

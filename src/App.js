@@ -22,10 +22,6 @@ const router = createBrowserRouter([
     element: <About />,
   },
   {
-    path: "/accomodation/*",
-    element: <NotFound />,
-  },
-  {
     path: "*",
     element: <NotFound />,
   },
