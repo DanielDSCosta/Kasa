@@ -1,6 +1,6 @@
 import "./accomodation.scss";
-import { useEffect, useState } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams, Redirect } from "react-router-dom";
 import datas from "../../data/data";
 import Header from "../../components/header/Header";
 import Slider from "../../components/carousel/Carousel";
@@ -16,7 +16,6 @@ export default function Accomodation() {
   const dataCurrentAccomodation = datas.filter(
     (data) => data.id === idAccomodation
   );
-
   useEffect(() => {
     const dataCurrentAccomodation = datas.filter(
       (data) => data.id === idAccomodation
@@ -28,10 +27,6 @@ export default function Accomodation() {
   const rating = dataCurrentAccomodation[0].rating;
   const description = dataCurrentAccomodation[0].description;
   const equipments = dataCurrentAccomodation[0].equipments;
-
-  if (!dataCurrentAccomodation) {
-    return <Navigate to="../notFound/NotFound" />;
-  }
 
   return (
     <>
