@@ -8,6 +8,7 @@ import Footer from "../../components/footer/Footer";
 import Collapse from "../../components/collapse/Collapse";
 import greyStar from "../../assets/grey_star.png";
 import redStar from "../../assets/red_star.png";
+import NotFound from "../notFound/NotFound";
 
 export default function Accomodation() {
   const [imageSlider, setImageSlider] = useState([]);
@@ -26,7 +27,7 @@ export default function Accomodation() {
 
   if (dataCurrentAccomodation.length === 0 || !dataCurrentAccomodation[0]) {
     // Si dataCurrentAccomodation est vide ou si dataCurrentAccomodation[0] est undefined, rediriger vers NotFound
-    return null;
+    return <NotFound />;
   }
 
   const name = dataCurrentAccomodation[0].host.name.split(" ");

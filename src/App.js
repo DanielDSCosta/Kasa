@@ -10,10 +10,6 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/Kasa/",
-    element: <Home />,
-  },
-  {
     path: "/accomodation/:id",
     element: <Accomodation />,
   },
